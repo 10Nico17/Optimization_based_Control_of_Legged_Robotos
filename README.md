@@ -19,4 +19,4 @@ hw1_LIPM_to_TSID_template.py
 
 hw1_tsid_biped_walking.py
 
-<img src="/home/nico/Documents/Optimization_Legged_Robots/Talos_Walking/talos.gif" width="800px">
+<img src="Talos_Walking/talos.gif" width="800px">
