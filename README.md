@@ -32,31 +32,51 @@ https://www.youtube.com/playlist?list=PL4nPbSX5VFGhjPfdWK3nFhjtkY4yfjBnF
 
 <img src="images/qp.png" width="600">
 
+<pre style="font-size: 16px; font-weight: bold;">
+    python3 Trajectory_Optimization/lipm_ocp.py
+</pre>
+
+
 
 ### Interpolation, LIPM to Whole-Body-Model, make  solution usable for TSID:
 
+- Optimized trajectory has large time step we need to interpolate
+
+<img src="images/interpolation.png" width="600">
 
 
+- We need a reference trajectory for the feets
+
+<img src="images/foottrajectory.png" width="600">
 
 
+Script for interpolation and foot trajectory and generates .npz files
 
-### Code general approach:
-
-python3 Trajectory_Optimization/lipm_ocp.py
-
-
-python3 Trajectory_Optimization/lipm_to_tsid.py
+<pre style="font-size: 16px; font-weight: bold;">
+    python3 Trajectory_Optimization/lipm_to_tsid.py
+</pre>
 
 
-python3 Romeo_Walking/main.py
+### Walking:
+
+<pre style="font-size: 16px; font-weight: bold;">
+    python3 Romeo_Walking/main.py
+</pre>
+
+
 
 
 ### Talos walking:
 
 Generate an .npz archive file containing the discretized trajectories for TSID:
 
-hw1_LIPM_to_TSID_template.py
+<pre style="font-size: 16px; font-weight: bold;">
+    hw1_LIPM_to_TSID_template.py
+</pre>
 
-hw1_tsid_biped_walking.py
+<pre style="font-size: 16px; font-weight: bold;">
+    hw1_tsid_biped_walking.py
+</pre>
+
 
 <img src="Talos_Walking/talos.gif" width="800px">
