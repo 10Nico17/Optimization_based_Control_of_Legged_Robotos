@@ -57,6 +57,11 @@ step_length           = 0.2               # fixed step length
 step_height           = 0.05              # fixed step height
 nb_steps              = 6                 # number of desired walking steps
 
+
+
+
+
+
 # configuration for TSID
 # ----------------------------------------------
 dt = 0.002                      # controller time step
@@ -90,6 +95,9 @@ else:
     kp_squat = 10.0            # proportional gain of squat task
 kp_posture = 1.0               # proportional gain of joint posture task
 kp_am = 10.0                   # proportional gain of angular momentum task
+
+
+
 
 #gain_vector = kp_posture*np.ones(nv-6)
 gain_vector = np.array(  # gain vector for postural task

@@ -30,6 +30,7 @@ lxp = foot_scaling*0.10                          # foot length in positive x dir
 lxn = foot_scaling*0.05                          # foot length in negative x direction
 lyp = foot_scaling*0.05                          # foot length in positive y direction
 lyn = foot_scaling*0.05                          # foot length in negative y direction
+
 lz = 0.0                                         # foot sole height with respect to ankle joint
 mu = 0.3                                         # friction coefficient
 fMin = 0.0                                       # minimum normal force
@@ -50,7 +51,8 @@ wdc = 1e-1  # CoM velocity error squared cost weight
 
 h           = 0.88      # fixed CoM height
 g           = 9.81      # norm of the gravity vector
-foot_step_0   = np.array([0.0, -0.1])   # initial foot step position in x-y
+
+foot_step_0   = np.array([0.0, -0.1])       # initial foot step position in x-y
 dt_mpc                = 0.1               # sampling time interval
 T_step                = 1                 # time needed for every step
 step_length           = 0.2               # fixed step length 
@@ -107,7 +109,8 @@ T_post = 1.5  # simulation time after walking
 
 w_com = 1.0  # weight of center of mass task
 w_cop = 0.0  # weight of center of pressure task
-w_am = 1e-4  # weight of angular momentum task
+w_am = 2  # weight of angular momentum task
+
 w_foot = 1e0  # weight of the foot motion task
 w_contact = 1e2  # weight of the foot in contact
 w_posture = 1e-4  # weight of joint posture task

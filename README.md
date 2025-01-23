@@ -93,6 +93,8 @@ Y direction: Lateral compensatory movements of the center of gravity to maintain
 <img src="images/com_x_y_z.png" width="800">
 
 
+<img src="Talos_Walking_2/talos.gif" width="800px">
+
 
 ### Talos walking_1:
 
