@@ -146,7 +146,9 @@ def interpolate_lipm_traj(T_step, nb_steps, dt_mpc, dt_ctrl, com_z, g,
     return com, dcom, ddcom, cop, contact_phase, foot_steps
 
 if __name__=='__main__':
-    import romeo_conf as conf
+    #import romeo_conf as conf
+    import talos_conf as conf
+
     import matplotlib.pyplot as plt
     import numpy as np
 

@@ -65,8 +65,36 @@ Script for interpolation and foot trajectory and generates .npz files
 
 
 
+### Talos walking_2:
 
-### Talos walking:
+1. Generate Reference Trajectory:
+
+<pre style="font-size: 16px; font-weight: bold;">
+    python3 lipm_ocp.py 
+</pre>
+
+<div style="display: flex; align-items: flex-start;">
+    <img src="images/com_x_plot.png" alt="CoM X Plot" style="height:300px; margin-right: 10px;">
+    <img src="images/com_y_plot.png" alt="CoM Y Plot" style="height:300px;">
+</div>
+
+X-Direction: Gradual advancement of the center of gravity following foot positions.
+
+Y direction: Lateral compensatory movements of the center of gravity to maintain balance.
+
+2. Linear Inverted Pendulum Model (LIPM), Model Predictive Control (MPC), Task-Space Inverse Dynamics (TSID):
+
+<pre style="font-size: 16px; font-weight: bold;">
+    python3 lipm_to_tsid.py 
+</pre>
+
+##### Compare CoM position:
+
+<img src="images/com_x_y_z.png" width="800">
+
+
+
+### Talos walking_1:
 
 Generate an .npz archive file containing the discretized trajectories for TSID:
 
@@ -79,4 +107,4 @@ Generate an .npz archive file containing the discretized trajectories for TSID:
 </pre>
 
 
-<img src="Talos_Walking/talos.gif" width="800px">
+<img src="Talos_Walking_1/talos.gif" width="800px">

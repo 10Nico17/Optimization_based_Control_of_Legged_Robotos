@@ -56,7 +56,11 @@ if __name__=="__main__":
     import matplotlib.pyplot as plt
     from reference_trajectories import manual_foot_placement, create_CoP_trajectory
     import utils.plot_utils
-    import romeo_conf as conf
+    #import romeo_conf as conf
+    import talos_conf as conf
+
+
+
 
     # MPC Parameters:
     foot_length = conf.lxn + conf.lxp  # foot size in the x-direction

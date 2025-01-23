@@ -46,6 +46,7 @@ contactNormal = np.matrix(
     [0.0, 0.0, 1.0]
 ).T  # direction of the normal to the contact surface
 
+
 # configuration for LIPM trajectory optimization
 # ----------------------------------------------
 wu = 1e1    # CoP error squared cost weight
@@ -59,6 +60,13 @@ T_step = 1.2  # time needed for every step
 step_length = 0.05  # fixed step length
 step_height = 0.05  # fixed step height
 nb_steps = 6  # number of desired walking steps
+
+
+
+
+
+
+
 
 # configuration for TSID
 # ----------------------------------------------
