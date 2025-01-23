@@ -61,6 +61,12 @@ tsid_biped.solver.resize(
     tsid_biped.formulation.nVar, tsid_biped.formulation.nEq, tsid_biped.formulation.nIn
 )
 
+
+
+'''
+Read the data from generated file
+'''
+
 N = data["com"].shape[1]
 N_pre = int(conf.T_pre / conf.dt)
 N_post = int(conf.T_post / conf.dt)
@@ -84,7 +90,11 @@ tau = np.zeros((tsid_biped.robot.na, N + N_post))
 q_log = np.zeros((tsid_biped.robot.nq, N + N_post))
 v_log = np.zeros((tsid_biped.robot.nv, N + N_post))
 
+
+# sequence of contac left and right foot
 contact_phase = data["contact_phase"]
+
+
 com_pos_ref = np.asarray(data["com"])
 com_vel_ref = np.asarray(data["dcom"])
 com_acc_ref = np.asarray(data["ddcom"])
@@ -114,6 +124,14 @@ c = 0
 q_list = []
 
 input("Press enter to start")
+
+
+'''
+start with neg index beacause we need to reach initial position, robot neede to be on one foot 
+at initial state. Robot will move the weight on one foot and break contact with one foot so it can 
+start following the reference trajectory
+'''
+
 for i in range(-N_pre, N + N_post):
     time_start = time.time()
 
@@ -134,14 +152,18 @@ for i in range(-N_pre, N + N_post):
                 tsid_biped.remove_contact_LF()
 
     if i < 0:
+        # set reference to intial state
         tsid_biped.set_com_ref(
             com_pos_ref[:, 0], 0 * com_vel_ref[:, 0], 0 * com_acc_ref[:, 0]
         )
     elif i < N-1:
+        # start following reference 
         tsid_biped.set_com_ref(com_pos_ref[:, i], com_vel_ref[:, i], com_acc_ref[:, i])
         tsid_biped.set_LF_3d_ref(x_LF_ref[:, i], dx_LF_ref[:, i], ddx_LF_ref[:, i])
         tsid_biped.set_RF_3d_ref(x_RF_ref[:, i], dx_RF_ref[:, i], ddx_RF_ref[:, i])
 
+
+    # Formulate and solve the problem
     HQPData = tsid_biped.formulation.computeProblemData(t, q, v)
     sol = tsid_biped.solver.solve(HQPData)
 
